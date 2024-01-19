@@ -1,5 +1,6 @@
 .sidebar__wrapper {
-    display: flex;
-    padding: 2rem;
-    background: #123;
+  display: flex;
+  padding: 1rem 0 12px 8px;
+  background: #123;
+  flex-direction: column;
 }
