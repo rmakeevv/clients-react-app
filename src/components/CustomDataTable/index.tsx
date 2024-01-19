@@ -15,8 +15,6 @@ interface IClients extends ClientsIndex {
   status: string;
 }
 
-console.log(data);
-
 const CustomDataTable = () => {
   const [tableData, setTableData] = useState<IClients[] | undefined>(undefined);
 
@@ -32,6 +30,12 @@ const CustomDataTable = () => {
   if (tableData)
     return (
       <table>
+        <thead>
+          <tr>
+            <th></th>
+          </tr>
+        </thead>
+
         <tbody className={styles.table__body}>
           {tableData.map((item) => (
             <tr key={item.id} className={styles.table__row}>
