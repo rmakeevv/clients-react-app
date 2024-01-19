@@ -21,7 +21,12 @@ const CustomDataTable = () => {
   const [tableData, setTableData] = useState<IClients[] | undefined>(undefined);
 
   useEffect(() => {
-    setTableData(data);
+    setTableData(
+      data.map((item) => ({
+        ...item,
+        created_at: new Date(item.created_at).toLocaleDateString('ru'),
+      }))
+    );
   }, []);
 
   if (tableData)
