@@ -1,6 +1,6 @@
 .root__container {
   background: rgba(24, 24, 29, 0.94);
   display: flex;
-    grid-template-columns: 20% auto;
-    height: 100vh;
+  grid-template-columns: 20% auto;
+  height: 100vh;
 }
