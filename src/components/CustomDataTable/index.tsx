@@ -32,7 +32,12 @@ const CustomDataTable = () => {
       <table>
         <thead>
           <tr>
-            <th></th>
+            <th>id</th>
+            <th>ФИО</th>
+            <th>Дата создания</th>
+            <th>Телефон</th>
+            <th>Регион</th>
+            <th>Статус</th>
           </tr>
         </thead>
 
