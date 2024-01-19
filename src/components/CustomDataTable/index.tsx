@@ -26,12 +26,16 @@ const CustomDataTable = () => {
 
   if (tableData)
     return (
-      <div className={styles.table__row}>
-        {tableData.map((item) => {
-          for (const key in item) {
-            return <div key={item.id}>{item[key]}</div>;
-          }
-        })}
+      <div className={styles.table__body}>
+        {tableData.map((item) => (
+          <div key={item.id} className={styles.table__row}>
+            {Object.keys(item).map((key) => (
+              <div key={item[key]} className={styles.table__cell}>
+                {item[key]}
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     );
 

@@ -1,3 +1,12 @@
+.table__body {
+  display: flex;
+  flex-direction: column;
+}
+
 .table__row {
   display: flex;
+}
+
+.table__cell {
+  padding: 12px;
 }
