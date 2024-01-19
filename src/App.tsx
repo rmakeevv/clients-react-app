@@ -1,7 +1,8 @@
+import { RootContainer } from 'components';
 import React from 'react';
 
 function App() {
-  return <div>Hello</div>;
+  return <RootContainer>1</RootContainer>;
 }
 
 export default App;
