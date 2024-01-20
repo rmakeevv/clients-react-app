@@ -31,6 +31,7 @@ const CustomDataTable = () => {
     return (
       <table>
         <thead>
+          <tr></tr>
           <tr>
             <th>id</th>
             <th>ФИО</th>

@@ -4,6 +4,10 @@
   font-weight: 500;
   padding: 18px 32px;
   cursor: pointer;
+  height: 70px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar__item:hover {
