@@ -1,6 +1,8 @@
+import { TextInput } from 'components/Common';
 import React, { useEffect, useState } from 'react';
 import data from 'service/clients.json';
 import styles from './index.module.css';
+import { ReactComponent as TrashIcon } from 'assets/images/fi-rr-trash.svg';
 
 interface ClientsIndex {
   [key: string]: any;
@@ -17,6 +19,11 @@ interface IClients extends ClientsIndex {
 
 const CustomDataTable = () => {
   const [tableData, setTableData] = useState<IClients[] | undefined>(undefined);
+  const [searchInputValue, setSearchInputValue] = useState('');
+
+  const deleteItem = (id: number) => {
+    setTableData((prevState) => prevState?.filter((item) => item.id !== id));
+  };
 
   useEffect(() => {
     setTableData(
@@ -31,7 +38,12 @@ const CustomDataTable = () => {
     return (
       <table>
         <thead>
-          <tr></tr>
+          <tr>
+            <TextInput
+              value={searchInputValue}
+              onChange={(event) => setSearchInputValue(event.target.value)}
+            />
+          </tr>
           <tr>
             <th>id</th>
             <th>ФИО</th>
@@ -39,6 +51,7 @@ const CustomDataTable = () => {
             <th>Телефон</th>
             <th>Регион</th>
             <th>Статус</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -51,6 +64,14 @@ const CustomDataTable = () => {
               <td className={styles.table__cell}>{item.phone}</td>
               <td className={styles.table__cell}>{item.region}</td>
               <td className={styles.table__cell}>{item.status}</td>
+              <td className={styles.table__cell}>
+                <button
+                  className={styles.delete__button}
+                  onClick={() => deleteItem(item.id)}
+                >
+                  <TrashIcon />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

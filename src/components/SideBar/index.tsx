@@ -5,18 +5,13 @@ import styles from './index.module.css';
 const SideBar = () => {
   return (
     <div className={styles.sidebar__wrapper}>
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
-      <SideBarItem title={'Example'} />
+      <SideBarItem title={'Клиенты'} />
+      <SideBarItem title={'Проекты'} />
+      <SideBarItem title={'База данных'} />
+      <SideBarItem title={'Организация'} />
+      <SideBarItem title={'Сотрудники'} />
+      <SideBarItem title={'Отчеты'} />
+      <SideBarItem title={'Переводы'} />
     </div>
   );
 };

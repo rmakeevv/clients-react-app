@@ -1,6 +1,16 @@
-
-
-
 .table__cell {
   padding: 12px;
+}
+
+.delete__button {
+  display: flex;
+  border: 0;
+  padding: 6px;
+  border-radius: 6px;
+  background: rgba(229, 69, 27, 0.85);
+  cursor: pointer;
+}
+
+.delete__button:hover {
+  opacity: 0.7;
 }
