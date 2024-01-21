@@ -38,12 +38,15 @@ const CustomDataTable = () => {
     return (
       <table>
         <thead>
-          <tr>
-            <TextInput
-              value={searchInputValue}
-              onChange={(event) => setSearchInputValue(event.target.value)}
-            />
+          <tr className={styles.filter__panel}>
+            <th>
+              <TextInput
+                value={searchInputValue}
+                onChange={(event) => setSearchInputValue(event.target.value)}
+              />
+            </th>
           </tr>
+
           <tr>
             <th>id</th>
             <th>ФИО</th>
