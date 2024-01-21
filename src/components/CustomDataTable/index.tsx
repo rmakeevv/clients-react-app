@@ -45,11 +45,12 @@ const CustomDataTable = () => {
         <tbody className={styles.table__body}>
           {tableData.map((item) => (
             <tr key={item.id} className={styles.table__row}>
-              {Object.keys(item).map((key) => (
-                <td key={item[key]} className={styles.table__cell}>
-                  {item[key]}
-                </td>
-              ))}
+              <td className={styles.table__cell}>{item.id}</td>
+              <td className={styles.table__cell}>{item.fullname}</td>
+              <td className={styles.table__cell}>{item.created_at}</td>
+              <td className={styles.table__cell}>{item.phone}</td>
+              <td className={styles.table__cell}>{item.region}</td>
+              <td className={styles.table__cell}>{item.status}</td>
             </tr>
           ))}
         </tbody>
