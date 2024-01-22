@@ -2,6 +2,7 @@ import { TextInput } from 'components/Common';
 import { deleteOne } from 'features/clients/clientsSlice';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './index.module.css';
 import { ReactComponent as TrashIcon } from 'assets/images/fi-rr-trash.svg';
 
@@ -38,7 +39,9 @@ const CustomDataTable = () => {
           {clients.map((item) => (
             <tr key={item.id} className={styles.table__row}>
               <td className={styles.table__cell}>{item.id}</td>
-              <td className={styles.table__cell}>{item.fullname}</td>
+              <td className={styles.table__cell}>
+                <Link to={`clients/${item.id}`}>{item.fullname}</Link>{' '}
+              </td>
               <td className={styles.table__cell}>{item.created_at}</td>
               <td className={styles.table__cell}>{item.phone}</td>
               <td className={styles.table__cell}>{item.region}</td>

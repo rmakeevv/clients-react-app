@@ -8,8 +8,14 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .sidebar__item:hover {
   background: rgba(240, 248, 255, 0.17);
+}
+
+.sidebar__item a {
+  color: #dddddd;
+  text-decoration: none;
 }

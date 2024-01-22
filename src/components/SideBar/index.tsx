@@ -5,6 +5,7 @@ import styles from './index.module.css';
 const SideBar = () => {
   return (
     <div className={styles.sidebar__wrapper}>
+      <SideBarItem title={'Главная'} />
       <SideBarItem title={'Клиенты'} />
       <SideBarItem title={'Проекты'} />
       <SideBarItem title={'База данных'} />

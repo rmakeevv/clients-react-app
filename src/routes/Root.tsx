@@ -1,18 +1,14 @@
-import {
-  ContentWrapper,
-  CustomDataTable,
-  RootContainer,
-  SideBar,
-} from 'components';
+import { ContentWrapper, RootContainer, SideBar } from 'components';
 
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <RootContainer>
       <SideBar />
       <ContentWrapper>
-        <CustomDataTable />
+        <Outlet />
       </ContentWrapper>
     </RootContainer>
   );
