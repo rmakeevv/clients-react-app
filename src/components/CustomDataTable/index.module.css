@@ -19,3 +19,9 @@
   display: flex;
   padding: 12px;
 }
+
+.table__container {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+}
