@@ -3,6 +3,7 @@ import { deleteOne } from 'features/clients/clientsSlice';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import formatDate from 'utils/date';
 import styles from './index.module.css';
 import { ReactComponent as TrashIcon } from 'assets/images/fi-rr-trash.svg';
 
@@ -42,7 +43,7 @@ const CustomDataTable = () => {
                   <Link to={`clients/${item.id}`}>{item.fullname}</Link>{' '}
                 </td>
                 <td className={styles.table__cell}>
-                  {new Date(item.created_at).toLocaleDateString('ru')}
+                  {formatDate(item.created_at)}
                 </td>
                 <td className={styles.table__cell}>{item.phone}</td>
                 <td className={styles.table__cell}>{item.region}</td>
