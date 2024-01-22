@@ -1,40 +1,16 @@
 import { TextInput } from 'components/Common';
-import React, { useEffect, useState } from 'react';
-import data from 'service/clients.json';
+import { deleteOne } from 'features/clients/clientsSlice';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import React, { useState } from 'react';
 import styles from './index.module.css';
 import { ReactComponent as TrashIcon } from 'assets/images/fi-rr-trash.svg';
 
-interface ClientsIndex {
-  [key: string]: any;
-}
-
-interface IClients extends ClientsIndex {
-  id: number;
-  fullname: string;
-  created_at: string;
-  phone: string;
-  region: string;
-  status: string;
-}
-
 const CustomDataTable = () => {
-  const [tableData, setTableData] = useState<IClients[] | undefined>(undefined);
   const [searchInputValue, setSearchInputValue] = useState('');
+  const clients = useAppSelector((state) => state.clients.value);
+  const dispatch = useAppDispatch();
 
-  const deleteItem = (id: number) => {
-    setTableData((prevState) => prevState?.filter((item) => item.id !== id));
-  };
-
-  useEffect(() => {
-    setTableData(
-      data.map((item) => ({
-        ...item,
-        created_at: new Date(item.created_at).toLocaleDateString('ru'),
-      }))
-    );
-  }, []);
-
-  if (tableData)
+  if (clients)
     return (
       <table>
         <thead>
@@ -59,7 +35,7 @@ const CustomDataTable = () => {
         </thead>
 
         <tbody className={styles.table__body}>
-          {tableData.map((item) => (
+          {clients.map((item) => (
             <tr key={item.id} className={styles.table__row}>
               <td className={styles.table__cell}>{item.id}</td>
               <td className={styles.table__cell}>{item.fullname}</td>
@@ -70,7 +46,7 @@ const CustomDataTable = () => {
               <td className={styles.table__cell}>
                 <button
                   className={styles.delete__button}
-                  onClick={() => deleteItem(item.id)}
+                  onClick={() => dispatch(deleteOne(item.id))}
                 >
                   <TrashIcon />
                 </button>
