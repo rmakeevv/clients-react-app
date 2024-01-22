@@ -42,7 +42,9 @@ const CustomDataTable = () => {
               <td className={styles.table__cell}>
                 <Link to={`clients/${item.id}`}>{item.fullname}</Link>{' '}
               </td>
-              <td className={styles.table__cell}>{item.created_at}</td>
+              <td className={styles.table__cell}>
+                {new Date(item.created_at).toLocaleDateString('ru')}
+              </td>
               <td className={styles.table__cell}>{item.phone}</td>
               <td className={styles.table__cell}>{item.region}</td>
               <td className={styles.table__cell}>{item.status}</td>
