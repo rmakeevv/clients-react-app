@@ -7,7 +7,7 @@ interface ClientsIndex {
   [key: string]: any;
 }
 
-interface IClients extends ClientsIndex {
+export interface IClients extends ClientsIndex {
   id: number;
   fullname: string;
   created_at: string;
