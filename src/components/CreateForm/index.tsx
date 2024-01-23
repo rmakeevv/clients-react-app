@@ -29,7 +29,6 @@ const ClientForm = () => {
 
   return (
     <div className={styles.create__form} onKeyDown={onEnter}>
-      <h2>Добавление клиента</h2>
       <div className={styles.input__panel}>
         <TextInput
           value={fullname}
@@ -44,6 +43,7 @@ const ClientForm = () => {
         />
         <TextInput
           value={phone}
+          width={'160px'}
           placeholder={'Телефон'}
           onChange={(event) => setPhone(event.target.value)}
         />

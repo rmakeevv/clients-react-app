@@ -3,6 +3,9 @@
   gap: 10px;
   flex-direction: column;
   padding: 12px;
+  background: #dddddd;
+  position: relative;
+
 }
 
 .date__input {

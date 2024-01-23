@@ -2,6 +2,7 @@
   display: flex;
   max-width: 800px;
   flex-direction: column;
+  padding: 12px;
 }
 
 .table__container {

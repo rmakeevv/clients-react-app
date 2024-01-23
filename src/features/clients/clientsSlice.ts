@@ -40,6 +40,14 @@ export const clientsSlice = createSlice({
       state.value.push(newClient);
       localStorage.setItem(newId + '', JSON.stringify(newClient));
     },
+    editClient: (state, action: PayloadAction<Partial<IClients>>) => {
+      state.value.map((client) => {
+        if (client.id === action.payload.id) {
+          return action.payload;
+        }
+        return client;
+      });
+    },
     getFromLocal: (state) => {
       const keys = Object.keys(localStorage);
       for (const key of keys) {
@@ -59,7 +67,8 @@ export const clientsSlice = createSlice({
   },
 });
 
-export const { deleteOne, addClient, getFromLocal } = clientsSlice.actions;
+export const { editClient, deleteOne, addClient, getFromLocal } =
+  clientsSlice.actions;
 
 export const selectClient = (state: RootState) => state.clients.value;
 

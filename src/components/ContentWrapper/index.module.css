@@ -1,5 +1,2 @@
 .content__wrapper {
-  display: grid;
-  grid-template-rows: 85% auto;
-  padding: 25px 12px;
 }

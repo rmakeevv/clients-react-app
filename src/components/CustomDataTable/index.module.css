@@ -23,6 +23,8 @@
   gap: 12px;
   padding: 12px;
   flex-direction: column;
+  height: 85vh;
+  overflow-y: scroll;
 }
 
 .edit__button {

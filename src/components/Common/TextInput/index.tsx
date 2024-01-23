@@ -5,9 +5,10 @@ interface ITextInput {
   value: string;
   placeholder: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
+  width?: string;
 }
 
-const TextInput = ({ onChange, value, placeholder }: ITextInput) => {
+const TextInput = ({ onChange, value, placeholder, width }: ITextInput) => {
   return (
     <input
       type={'text'}
@@ -15,6 +16,7 @@ const TextInput = ({ onChange, value, placeholder }: ITextInput) => {
       value={value}
       className={styles.text__input}
       placeholder={placeholder}
+      width={width}
     />
   );
 };
