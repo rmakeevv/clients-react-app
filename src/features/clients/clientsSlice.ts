@@ -45,11 +45,12 @@ export const clientsSlice = createSlice({
         const itemFromLocal: IClients = JSON.parse(
           localStorage.getItem(key) || ''
         );
-        state.value.forEach((client) => {
-          if (client.id !== itemFromLocal.id) {
-            state.value.push(itemFromLocal);
-          }
-        });
+        const existedClient = state.value.filter(
+          (client) => client.id === itemFromLocal.id
+        );
+        if (!existedClient.length) {
+          state.value.push(itemFromLocal);
+        }
       }
     },
   },
