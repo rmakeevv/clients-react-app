@@ -3,6 +3,7 @@ import { IClients } from 'features/clients/clientsSlice';
 import { useAppSelector } from 'hooks';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import formatDate from 'utils/date';
 import styles from './index.module.css';
 
 const ClientPage = () => {
@@ -36,7 +37,7 @@ const ClientPage = () => {
             </tr>
             <tr>
               <td>Дата создания</td>
-              <td>{clientData?.created_at}</td>
+              <td>{formatDate(clientData?.created_at || '')}</td>
             </tr>
             <tr>
               <td>Телефон</td>
