@@ -19,6 +19,6 @@
 
 .input__panel {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   gap: 12px;
 }

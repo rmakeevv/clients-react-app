@@ -62,7 +62,6 @@ const CustomDataTable = () => {
   return (
     <ContentWrapper>
       <div className={styles.table__container}>
-        <h1>Клиенты</h1>
         <div className={styles.filter__panel}>
           <TextInput
             placeholder={'Поиск по ФИО'}
