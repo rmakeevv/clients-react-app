@@ -1,8 +1,16 @@
 import { TextInput } from 'components/Common';
+import Dropdown from 'components/Common/Dropdown';
+import { DropdownItem } from 'components/Common/Dropdown/types';
 import { addClient } from 'features/clients/clientsSlice';
 import { useAppDispatch } from 'hooks';
 import React, { useState } from 'react';
 import styles from './index.module.css';
+
+const statusOptions: DropdownItem[] = [
+  { id: 1, value: 'Активен' },
+  { id: 2, value: 'Неактивен' },
+  { id: 3, value: 'Приостановлен' },
+];
 
 const ClientForm = () => {
   const dispatch = useAppDispatch();
@@ -10,16 +18,20 @@ const ClientForm = () => {
   const [createdAt, setCreatedAt] = useState('');
   const [region, setRegion] = useState('');
   const [phone, setPhone] = useState('');
-  const [status, setStatus] = useState('');
+  const [statusFilter, setStatusFilter] = useState<DropdownItem>({
+    id: 0,
+    value: '',
+  });
 
   const onEnter = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
+      const created_at: string = createdAt || new Date().toString();
       const newClient = {
         fullname,
-        created_at: createdAt,
+        created_at,
         phone,
         region,
-        status,
+        status: statusFilter.value,
         id: 0,
       };
       console.log('enter');
@@ -52,10 +64,12 @@ const ClientForm = () => {
           placeholder={'Регион'}
           onChange={(event) => setRegion(event.target.value)}
         />
-        <TextInput
-          value={status}
-          placeholder={'Статус'}
-          onChange={(event) => setStatus(event.target.value)}
+        <Dropdown
+          onChange={setStatusFilter}
+          value={statusFilter}
+          placeholder={'Выберите статус'}
+          options={statusOptions}
+          listStyle={{ bottom: '48px' }}
         />
       </div>
     </div>

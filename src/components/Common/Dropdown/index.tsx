@@ -11,6 +11,7 @@ const RestDropdown = ({
   placeholder,
   style,
   error,
+  listStyle,
 }: RestDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -74,7 +75,7 @@ const RestDropdown = ({
         <DropdownList
           setIsOpen={setIsOpen}
           options={options}
-          style={style}
+          style={listStyle}
           onChange={onChange}
         />
       )}

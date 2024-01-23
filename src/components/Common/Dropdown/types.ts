@@ -7,9 +7,10 @@ export type DropdownItem = {
 
 export interface RestDropdownProps {
   options?: DropdownItem[];
-  onChange: ({id, value}: DropdownItem) => void;
+  onChange: ({ id, value }: DropdownItem) => void;
   value: DropdownItem;
   placeholder: string;
   style?: React.CSSProperties;
   error?: boolean;
+  listStyle?: React.CSSProperties;
 }

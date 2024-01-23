@@ -34,12 +34,17 @@ export const clientsSlice = createSlice({
       state.value = state.value.filter(
         (client) => client.id !== action.payload
       );
+      state.filtered = state.filtered.filter(
+        (client) => client.id !== action.payload
+      );
       localStorage.removeItem(action.payload.toString());
     },
     addClient: (state, action: PayloadAction<IClients>) => {
       const newId = (state.value.length * 16807) % 2147483647;
       const newClient = { ...action.payload, id: newId };
       state.value.push(newClient);
+      state.filtered.push(newClient);
+
       localStorage.setItem(newId + '', JSON.stringify(newClient));
     },
     editClient: (state, action: PayloadAction<Partial<IClients>>) => {

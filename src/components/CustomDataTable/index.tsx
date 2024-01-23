@@ -120,10 +120,7 @@ const CustomDataTable = () => {
                     >
                       <TrashIcon />
                     </button>
-                    <button
-                      className={styles.edit__button}
-                      onClick={() => dispatch(deleteOne(item.id))}
-                    >
+                    <button className={styles.edit__button}>
                       <PencilIcon />
                     </button>
                   </td>
