@@ -34,10 +34,10 @@ const CustomDataTable = () => {
         <table>
           <thead>
             <tr>
-              <th>id</th>
+              <th style={{ textAlign: 'end' }}>id</th>
               <th>ФИО</th>
               <th>Дата создания</th>
-              <th style={{ width: '120px' }}>Телефон</th>
+              <th style={{ width: '120px', textAlign: 'end' }}>Телефон</th>
               <th style={{ width: '150px' }}>Регион</th>
               <th>Статус</th>
               <th style={{ width: '105px' }}></th>
@@ -47,14 +47,18 @@ const CustomDataTable = () => {
           <tbody className={styles.table__body}>
             {clients.map((item) => (
               <tr key={item.id} className={styles.table__row}>
-                <td className={styles.table__cell}>{item.id}</td>
+                <td style={{ textAlign: 'end' }} className={styles.table__cell}>
+                  {item.id}
+                </td>
                 <td className={styles.table__cell}>
                   <Link to={`clients/${item.id}`}>{item.fullname}</Link>{' '}
                 </td>
                 <td className={styles.table__cell}>
                   {formatDate(item.created_at)}
                 </td>
-                <td className={styles.table__cell}>{item.phone}</td>
+                <td className={styles.table__cell} style={{ textAlign: 'end' }}>
+                  {item.phone}
+                </td>
                 <td className={styles.table__cell}>{item.region}</td>
                 <td className={styles.table__cell}>{item.status}</td>
                 <td className={styles.action__cell}>

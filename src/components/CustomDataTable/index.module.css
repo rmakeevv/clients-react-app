@@ -22,7 +22,6 @@
   display: flex;
   gap: 12px;
   padding: 12px;
-  font-size: 14px;
   flex-direction: column;
 }
 
