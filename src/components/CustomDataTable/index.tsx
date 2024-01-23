@@ -42,6 +42,7 @@ const CustomDataTable = () => {
   useEffect(() => {
     dispatch(filterByStatus(statusFilter.value));
     setTableData(filtered);
+    setSearchInputValue('');
   }, [statusFilter.id]);
 
   const onSearch = (event: React.ChangeEvent<HTMLInputElement>) => {

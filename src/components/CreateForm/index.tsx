@@ -69,7 +69,7 @@ const ClientForm = () => {
           value={statusFilter}
           placeholder={'Выберите статус'}
           options={statusOptions}
-          listStyle={{ bottom: '48px' }}
+          listStyle={{ bottom: '135px' }}
         />
       </div>
     </div>
