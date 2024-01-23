@@ -26,15 +26,29 @@ const CustomDataTable = () => {
     setTableData(clients);
   }, []);
 
+  const onSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInputValue(event.target.value);
+
+    setTableData((prevState) => {
+      if (prevState) {
+        return clients.filter((client) =>
+          client.fullname
+            .toLowerCase()
+            .includes(event.target.value.toLowerCase().trim())
+        );
+      }
+    });
+  };
+
   return (
     <ContentWrapper>
       <div className={styles.table__container}>
         <h1>Клиенты</h1>
         <div className={styles.filter__panel}>
           <TextInput
-            placeholder={'Поиск'}
+            placeholder={'Поиск по ФИО'}
             value={searchInputValue}
-            onChange={(event) => setSearchInputValue(event.target.value)}
+            onChange={onSearch}
           />
         </div>
 
