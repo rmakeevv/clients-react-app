@@ -24,6 +24,14 @@ tr:nth-child(even) {
   background-color: rgba(24, 24, 29, 0.07);
 }
 
+tr {
+  transition: 0.3s;
+}
+
+tbody tr:hover {
+  background: rgba(144, 144, 149, 0.43);
+}
+
 a {
   text-decoration: none;
 }
@@ -32,13 +40,12 @@ h1 {
   display: flex;
 }
 
-input[type=date] {
+input[type='date'] {
   font-size: 16px;
   outline: 0;
   font-family: sans-serif, 'SansSerif';
-
 }
 
-input[type=date]:focus {
+input[type='date']:focus {
   border: 1px solid #2684ff;
 }
