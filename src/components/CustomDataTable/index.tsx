@@ -25,7 +25,7 @@ const statusOptions: DropdownItem[] = [
 
 const CustomDataTable = () => {
   const [searchInputValue, setSearchInputValue] = useState('');
-  const clients = useAppSelector((state) => state.clients.value);
+  const filtered = useAppSelector((state) => state.clients.filtered);
   const dispatch = useAppDispatch();
   const [statusFilter, setStatusFilter] = useState<DropdownItem>({
     id: 0,
@@ -36,11 +36,12 @@ const CustomDataTable = () => {
 
   useEffect(() => {
     dispatch(getFromLocal());
-    setTableData(clients);
-  }, [clients]);
+    setTableData(filtered);
+  }, [filtered]);
 
   useEffect(() => {
     dispatch(filterByStatus(statusFilter.value));
+    setTableData(filtered);
   }, [statusFilter.id]);
 
   const onSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +49,7 @@ const CustomDataTable = () => {
 
     setTableData((prevState) => {
       if (prevState) {
-        return clients.filter((client) =>
+        return filtered.filter((client) =>
           client.fullname
             .toLowerCase()
             .includes(event.target.value.toLowerCase().trim())

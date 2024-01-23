@@ -18,10 +18,12 @@ export interface IClients extends ClientsIndex {
 
 interface IClientsState {
   value: IClients[];
+  filtered: IClients[];
 }
 
 const initialState: IClientsState = {
   value: data,
+  filtered: data,
 };
 
 export const clientsSlice = createSlice({
@@ -50,11 +52,11 @@ export const clientsSlice = createSlice({
     },
     filterByStatus: (state, action: PayloadAction<string>) => {
       if (action.payload) {
-        state.value = state.value.filter(
+        state.filtered = state.value.filter(
           (client) => client.status === action.payload
         );
       } else {
-        state.value = data;
+        state.filtered = state.value;
       }
     },
     getFromLocal: (state) => {
@@ -69,6 +71,7 @@ export const clientsSlice = createSlice({
           );
           if (!existedClient.length) {
             state.value.push(itemFromLocal);
+            state.filtered.push(itemFromLocal);
           }
         }
       }
