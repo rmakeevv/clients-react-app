@@ -16,7 +16,11 @@ import styles from './index.module.css';
 import { ReactComponent as TrashIcon } from 'assets/images/fi-rr-trash.svg';
 import { ReactComponent as PencilIcon } from 'assets/images/fi-rr-pencil.svg';
 
-const statusOptions: DropdownItem[] = [{ id: 1, value: 'Активен' }];
+const statusOptions: DropdownItem[] = [
+  { id: 1, value: 'Активен' },
+  { id: 2, value: 'Неактивен' },
+  { id: 3, value: 'Приостановлен' },
+];
 
 const CustomDataTable = () => {
   const [searchInputValue, setSearchInputValue] = useState('');

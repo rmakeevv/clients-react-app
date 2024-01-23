@@ -54,4 +54,5 @@ section::-webkit-scrollbar-thumb {
   background: 0;
   width: 23px;
   height: 20px;
+  border: 0;
 }

@@ -17,6 +17,7 @@
   display: flex;
   padding: 12px;
   align-items: flex-start;
+  gap: 10px;
 }
 
 .table__container {

@@ -1,7 +1,12 @@
 .text__input {
   border: 1px solid rgba(24, 24, 29, 0.25);
-  padding: 10px 12px;
-  font-size: 14px;
+  padding: 9px 12px;
   box-sizing: border-box;
   min-height: 40px;
+  font-size: 16px;
+  outline: 0;
+}
+
+.text__input:focus {
+  border-color: #2684ff;
 }
