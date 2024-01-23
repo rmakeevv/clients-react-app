@@ -5,6 +5,7 @@ import CreateForm from 'components/CreateForm';
 import { ContentWrapper } from 'components/index';
 import {
   deleteOne,
+  filterByStatus,
   getFromLocal,
   IClients,
 } from 'features/clients/clientsSlice';
@@ -36,7 +37,11 @@ const CustomDataTable = () => {
   useEffect(() => {
     dispatch(getFromLocal());
     setTableData(clients);
-  }, []);
+  }, [clients]);
+
+  useEffect(() => {
+    dispatch(filterByStatus(statusFilter.value));
+  }, [statusFilter.id]);
 
   const onSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInputValue(event.target.value);

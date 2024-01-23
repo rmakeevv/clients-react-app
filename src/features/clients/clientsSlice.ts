@@ -35,7 +35,7 @@ export const clientsSlice = createSlice({
       localStorage.removeItem(action.payload.toString());
     },
     addClient: (state, action: PayloadAction<IClients>) => {
-      const newId = state.value.length;
+      const newId = (state.value.length * 16807) % 2147483647;
       const newClient = { ...action.payload, id: newId };
       state.value.push(newClient);
       localStorage.setItem(newId + '', JSON.stringify(newClient));
@@ -47,6 +47,15 @@ export const clientsSlice = createSlice({
         }
         return client;
       });
+    },
+    filterByStatus: (state, action: PayloadAction<string>) => {
+      if (action.payload) {
+        state.value = state.value.filter(
+          (client) => client.status === action.payload
+        );
+      } else {
+        state.value = data;
+      }
     },
     getFromLocal: (state) => {
       const keys = Object.keys(localStorage);
@@ -67,8 +76,13 @@ export const clientsSlice = createSlice({
   },
 });
 
-export const { editClient, deleteOne, addClient, getFromLocal } =
-  clientsSlice.actions;
+export const {
+  filterByStatus,
+  editClient,
+  deleteOne,
+  addClient,
+  getFromLocal,
+} = clientsSlice.actions;
 
 export const selectClient = (state: RootState) => state.clients.value;
 
