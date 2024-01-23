@@ -3,4 +3,5 @@
   padding: 10px 12px;
   font-size: 14px;
   box-sizing: border-box;
+  min-height: 40px;
 }

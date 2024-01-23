@@ -1,4 +1,6 @@
 import { TextInput } from 'components/Common';
+import Dropdown from 'components/Common/Dropdown';
+import { DropdownItem } from 'components/Common/Dropdown/types';
 import CreateForm from 'components/CreateForm';
 import { ContentWrapper } from 'components/index';
 import {
@@ -14,10 +16,16 @@ import styles from './index.module.css';
 import { ReactComponent as TrashIcon } from 'assets/images/fi-rr-trash.svg';
 import { ReactComponent as PencilIcon } from 'assets/images/fi-rr-pencil.svg';
 
+const statusOptions: DropdownItem[] = [{ id: 1, value: 'Активен' }];
+
 const CustomDataTable = () => {
   const [searchInputValue, setSearchInputValue] = useState('');
   const clients = useAppSelector((state) => state.clients.value);
   const dispatch = useAppDispatch();
+  const [statusFilter, setStatusFilter] = useState<DropdownItem>({
+    id: 0,
+    value: '',
+  });
 
   const [tableData, setTableData] = useState<IClients[] | undefined>(undefined);
 
@@ -49,6 +57,12 @@ const CustomDataTable = () => {
             placeholder={'Поиск по ФИО'}
             value={searchInputValue}
             onChange={onSearch}
+          />
+          <Dropdown
+            onChange={setStatusFilter}
+            value={statusFilter}
+            placeholder={'Выберите статус'}
+            options={statusOptions}
           />
         </div>
 

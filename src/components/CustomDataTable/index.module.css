@@ -16,6 +16,7 @@
 .filter__panel {
   display: flex;
   padding: 12px;
+  align-items: flex-start;
 }
 
 .table__container {
