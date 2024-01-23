@@ -34,13 +34,13 @@ const CustomDataTable = () => {
         <table>
           <thead>
             <tr>
-              <th style={{ width: '10%' }}>id</th>
-              <th style={{ width: '20%' }}>ФИО</th>
-              <th style={{ width: '105px' }}>Дата создания</th>
-              <th style={{ width: '95px' }}>Телефон</th>
-              <th style={{ width: '155px' }}>Регион</th>
+              <th>id</th>
+              <th>ФИО</th>
+              <th>Дата создания</th>
+              <th>Телефон</th>
+              <th>Регион</th>
               <th style={{ width: '105px' }}>Статус</th>
-              <th style={{ width: '22px' }}></th>
+              <th style={{ width: '105px' }}></th>
             </tr>
           </thead>
 
