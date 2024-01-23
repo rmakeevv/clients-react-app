@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import formatDate from 'utils/date';
 import styles from './index.module.css';
 import { ReactComponent as TrashIcon } from 'assets/images/fi-rr-trash.svg';
+import { ReactComponent as PencilIcon } from 'assets/images/fi-rr-pencil.svg';
 
 const CustomDataTable = () => {
   const [searchInputValue, setSearchInputValue] = useState('');
@@ -33,7 +34,7 @@ const CustomDataTable = () => {
         <table>
           <thead>
             <tr>
-              <th style={{ width: '20px' }}>id</th>
+              <th style={{ width: '10%' }}>id</th>
               <th style={{ width: '20%' }}>ФИО</th>
               <th style={{ width: '105px' }}>Дата создания</th>
               <th style={{ width: '95px' }}>Телефон</th>
@@ -56,7 +57,7 @@ const CustomDataTable = () => {
                 <td className={styles.table__cell}>{item.phone}</td>
                 <td className={styles.table__cell}>{item.region}</td>
                 <td className={styles.table__cell}>{item.status}</td>
-                <td className={styles.table__cell}>
+                <td className={styles.action__cell}>
                   <button
                     className={styles.delete__button}
                     onClick={() => dispatch(deleteOne(item.id))}
@@ -64,10 +65,10 @@ const CustomDataTable = () => {
                     <TrashIcon />
                   </button>
                   <button
-                    className={styles.delete__button}
+                    className={styles.edit__button}
                     onClick={() => dispatch(deleteOne(item.id))}
                   >
-                    <TrashIcon />
+                    <PencilIcon />
                   </button>
                 </td>
               </tr>
