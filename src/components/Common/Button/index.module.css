@@ -4,6 +4,7 @@
   color: #dddddd;
   border-radius: 6px;
   font-weight: 500;
+  transition: 0.3s ease-in-out;
 }
 
 .custom__button:hover {

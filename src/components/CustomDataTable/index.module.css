@@ -45,4 +45,10 @@
 
 .table__container a {
   color: #1750cb;
+  transition: 0.3s;
+}
+
+.table__container a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
 }
