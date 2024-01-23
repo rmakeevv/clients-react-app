@@ -1,7 +1,8 @@
 import { TextInput } from 'components/Common';
-import { deleteOne } from 'features/clients/clientsSlice';
+import CreateForm from 'components/CreateForm';
+import { deleteOne, getFromLocal } from 'features/clients/clientsSlice';
 import { useAppDispatch, useAppSelector } from 'hooks';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import formatDate from 'utils/date';
 import styles from './index.module.css';
@@ -12,11 +13,17 @@ const CustomDataTable = () => {
   const clients = useAppSelector((state) => state.clients.value);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    console.log('2 times');
+    dispatch(getFromLocal());
+  }, []);
+
   if (clients)
     return (
       <div className={styles.table__container}>
         <div className={styles.filter__panel}>
           <TextInput
+            placeholder={'Поиск'}
             value={searchInputValue}
             onChange={(event) => setSearchInputValue(event.target.value)}
           />
@@ -60,6 +67,8 @@ const CustomDataTable = () => {
             ))}
           </tbody>
         </table>
+
+        <CreateForm />
       </div>
     );
 

@@ -33,10 +33,22 @@ export const clientsSlice = createSlice({
         (client) => client.id !== action.payload
       );
     },
+    addClient: (state, action: PayloadAction<IClients>) => {
+      const newId = state.value.length;
+      const newClient = { ...action.payload, id: newId };
+      state.value.push(newClient);
+      localStorage.setItem(newId + '', JSON.stringify(newClient));
+    },
+    getFromLocal: (state) => {
+      const keys = Object.keys(localStorage);
+      for (const key of keys) {
+        state.value.push(JSON.parse(localStorage.getItem(key) || ''));
+      }
+    },
   },
 });
 
-export const { deleteOne } = clientsSlice.actions;
+export const { deleteOne, addClient, getFromLocal } = clientsSlice.actions;
 
 export const selectClient = (state: RootState) => state.clients.value;
 

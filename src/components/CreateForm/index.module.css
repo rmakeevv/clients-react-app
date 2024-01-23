@@ -1,4 +1,9 @@
-.text__input {
+.create__form {
+  display: flex;
+  gap: 14px;
+}
+
+.date__input {
   border: 1px solid rgba(24, 24, 29, 0.25);
   padding: 10px 12px;
   font-size: 16px;
