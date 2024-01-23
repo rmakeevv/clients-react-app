@@ -14,7 +14,7 @@ const statusOptions: DropdownItem[] = [
 
 const ClientForm = () => {
   const dispatch = useAppDispatch();
-  const [fullname, setFullname] = useState('');
+  const [fullname, setFullname] = useState('Новый пользователь');
   const [createdAt, setCreatedAt] = useState('');
   const [region, setRegion] = useState('');
   const [phone, setPhone] = useState('');
