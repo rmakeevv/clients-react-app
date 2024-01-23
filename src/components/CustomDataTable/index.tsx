@@ -1,7 +1,11 @@
 import { TextInput } from 'components/Common';
 import CreateForm from 'components/CreateForm';
 import { ContentWrapper } from 'components/index';
-import { deleteOne, getFromLocal } from 'features/clients/clientsSlice';
+import {
+  deleteOne,
+  getFromLocal,
+  IClients,
+} from 'features/clients/clientsSlice';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -15,39 +19,41 @@ const CustomDataTable = () => {
   const clients = useAppSelector((state) => state.clients.value);
   const dispatch = useAppDispatch();
 
+  const [tableData, setTableData] = useState<IClients[] | undefined>(undefined);
+
   useEffect(() => {
-    console.log('2 times');
     dispatch(getFromLocal());
+    setTableData(clients);
   }, []);
 
-  if (clients)
-    return (
-      <ContentWrapper>
-        <div className={styles.table__container}>
-          <h1>Клиенты</h1>
-          <div className={styles.filter__panel}>
-            <TextInput
-              placeholder={'Поиск'}
-              value={searchInputValue}
-              onChange={(event) => setSearchInputValue(event.target.value)}
-            />
-          </div>
+  return (
+    <ContentWrapper>
+      <div className={styles.table__container}>
+        <h1>Клиенты</h1>
+        <div className={styles.filter__panel}>
+          <TextInput
+            placeholder={'Поиск'}
+            value={searchInputValue}
+            onChange={(event) => setSearchInputValue(event.target.value)}
+          />
+        </div>
 
-          <table>
-            <thead>
-              <tr>
-                <th style={{ textAlign: 'end' }}>id</th>
-                <th>ФИО</th>
-                <th>Дата создания</th>
-                <th style={{ width: '120px', textAlign: 'end' }}>Телефон</th>
-                <th style={{ width: '150px' }}>Регион</th>
-                <th>Статус</th>
-                <th style={{ width: '105px' }}></th>
-              </tr>
-            </thead>
+        <table>
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'end' }}>id</th>
+              <th>ФИО</th>
+              <th>Дата создания</th>
+              <th style={{ width: '120px', textAlign: 'end' }}>Телефон</th>
+              <th style={{ width: '150px' }}>Регион</th>
+              <th>Статус</th>
+              <th style={{ width: '105px' }}></th>
+            </tr>
+          </thead>
 
-            <tbody className={styles.table__body}>
-              {clients.map((item) => (
+          <tbody className={styles.table__body}>
+            {tableData &&
+              tableData.map((item) => (
                 <tr key={item.id} className={styles.table__row}>
                   <td
                     style={{ textAlign: 'end' }}
@@ -85,14 +91,12 @@ const CustomDataTable = () => {
                   </td>
                 </tr>
               ))}
-            </tbody>
-          </table>
-        </div>
-        <CreateForm />
-      </ContentWrapper>
-    );
-
-  return <div>Loading...</div>;
+          </tbody>
+        </table>
+      </div>
+      <CreateForm />
+    </ContentWrapper>
+  );
 };
 
 export default CustomDataTable;
