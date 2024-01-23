@@ -1,0 +1,11 @@
+.custom__button {
+  padding: 10px 16px;
+  background: #112233;
+  color: #dddddd;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.custom__button:hover {
+  background: rgba(24, 24, 29, 0.75);
+}

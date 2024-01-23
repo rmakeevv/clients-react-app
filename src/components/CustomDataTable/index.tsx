@@ -21,6 +21,7 @@ const CustomDataTable = () => {
   if (clients)
     return (
       <div className={styles.table__container}>
+        <h1>Клиенты</h1>
         <div className={styles.filter__panel}>
           <TextInput
             placeholder={'Поиск'}
@@ -33,12 +34,12 @@ const CustomDataTable = () => {
           <thead>
             <tr>
               <th style={{ width: '20px' }}>id</th>
-              <th>ФИО</th>
-              <th style={{ width: '155px' }}>Дата создания</th>
-              <th>Телефон</th>
-              <th>Регион</th>
-              <th>Статус</th>
-              <th></th>
+              <th style={{ width: '20%' }}>ФИО</th>
+              <th style={{ width: '105px' }}>Дата создания</th>
+              <th style={{ width: '95px' }}>Телефон</th>
+              <th style={{ width: '155px' }}>Регион</th>
+              <th style={{ width: '105px' }}>Статус</th>
+              <th style={{ width: '22px' }}></th>
             </tr>
           </thead>
 
@@ -56,6 +57,12 @@ const CustomDataTable = () => {
                 <td className={styles.table__cell}>{item.region}</td>
                 <td className={styles.table__cell}>{item.status}</td>
                 <td className={styles.table__cell}>
+                  <button
+                    className={styles.delete__button}
+                    onClick={() => dispatch(deleteOne(item.id))}
+                  >
+                    <TrashIcon />
+                  </button>
                   <button
                     className={styles.delete__button}
                     onClick={() => dispatch(deleteOne(item.id))}

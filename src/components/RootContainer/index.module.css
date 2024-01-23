@@ -1,6 +1,6 @@
 .root__container {
   background: rgb(255, 255, 255);
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 20% 80%;
   height: 100vh;
 }

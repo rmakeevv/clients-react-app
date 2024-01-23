@@ -1,0 +1,21 @@
+.client__contents {
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+}
+
+.table__container {
+  display: flex;
+  align-items: flex-start;
+  min-width: 400px;
+}
+
+.client__contents tr {
+  background: #ffffff;
+}
+
+.client__panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
