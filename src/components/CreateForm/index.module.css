@@ -13,5 +13,6 @@
 
 .input__panel {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
