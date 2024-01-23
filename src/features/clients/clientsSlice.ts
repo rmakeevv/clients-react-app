@@ -42,7 +42,14 @@ export const clientsSlice = createSlice({
     getFromLocal: (state) => {
       const keys = Object.keys(localStorage);
       for (const key of keys) {
-        state.value.push(JSON.parse(localStorage.getItem(key) || ''));
+        const itemFromLocal: IClients = JSON.parse(
+          localStorage.getItem(key) || ''
+        );
+        state.value.forEach((client) => {
+          if (client.id !== itemFromLocal.id) {
+            state.value.push(itemFromLocal);
+          }
+        });
       }
     },
   },
