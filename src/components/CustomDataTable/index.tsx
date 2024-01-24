@@ -91,26 +91,14 @@ const CustomDataTable = () => {
             {tableData &&
               tableData.map((item) => (
                 <tr key={item.id} className={styles.table__row}>
-                  <td
-                    style={{ textAlign: 'end' }}
-                    className={styles.table__cell}
-                  >
-                    {item.id}
-                  </td>
-                  <td className={styles.table__cell}>
+                  <td style={{ textAlign: 'end' }}>{item.id}</td>
+                  <td>
                     <Link to={`clients/${item.id}`}>{item.fullname}</Link>{' '}
                   </td>
-                  <td className={styles.table__cell}>
-                    {formatDate(item.created_at)}
-                  </td>
-                  <td
-                    className={styles.table__cell}
-                    style={{ textAlign: 'end' }}
-                  >
-                    {item.phone}
-                  </td>
-                  <td className={styles.table__cell}>{item.region}</td>
-                  <td className={styles.table__cell}>{item.status}</td>
+                  <td>{formatDate(item.created_at)}</td>
+                  <td style={{ textAlign: 'end' }}>{item.phone}</td>
+                  <td>{item.region}</td>
+                  <td>{item.status}</td>
                   <td>
                     <button
                       className={styles.delete__button}
