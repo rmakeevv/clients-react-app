@@ -83,7 +83,7 @@ const CustomDataTable = () => {
               <th style={{ width: '120px', textAlign: 'end' }}>Телефон</th>
               <th style={{ width: '150px' }}>Регион</th>
               <th>Статус</th>
-              <th style={{ width: '50px' }}></th>
+              <th style={{ width: '46px' }}></th>
             </tr>
           </thead>
 

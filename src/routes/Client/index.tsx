@@ -29,20 +29,17 @@ const ClientPage = () => {
           <tbody>
             <tr>
               <td>ФИО</td>
-              <td>{clientData?.fullname}</td>
+              <td>{clientData?.fullname || ''}</td>
             </tr>
             <tr>
               <td>Телефон</td>
-              <td>{clientData?.phone}</td>
+              <td>{clientData?.phone || '-'}</td>
             </tr>
             <tr>
               <td>Дата создания</td>
               <td>{formatDate(clientData?.created_at || '')}</td>
             </tr>
-            <tr>
-              <td>Телефон</td>
-              <td>{clientData?.phone}</td>
-            </tr>
+
             <tr>
               <td>Статус</td>
               <td>{clientData?.status}</td>
