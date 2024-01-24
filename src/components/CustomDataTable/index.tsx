@@ -14,7 +14,6 @@ import { Link } from 'react-router-dom';
 import formatDate from 'utils/date';
 import styles from './index.module.css';
 import { ReactComponent as TrashIcon } from 'assets/images/fi-rr-trash.svg';
-import { ReactComponent as PencilIcon } from 'assets/images/fi-rr-pencil.svg';
 
 const statusOptions: DropdownItem[] = [
   { id: 1, value: 'Активен' },
@@ -84,7 +83,7 @@ const CustomDataTable = () => {
               <th style={{ width: '120px', textAlign: 'end' }}>Телефон</th>
               <th style={{ width: '150px' }}>Регион</th>
               <th>Статус</th>
-              <th style={{ width: '105px' }}></th>
+              <th style={{ width: '50px' }}></th>
             </tr>
           </thead>
 
@@ -112,15 +111,12 @@ const CustomDataTable = () => {
                   </td>
                   <td className={styles.table__cell}>{item.region}</td>
                   <td className={styles.table__cell}>{item.status}</td>
-                  <td className={styles.action__cell}>
+                  <td>
                     <button
                       className={styles.delete__button}
                       onClick={() => dispatch(deleteOne(item.id))}
                     >
                       <TrashIcon />
-                    </button>
-                    <button className={styles.edit__button}>
-                      <PencilIcon />
                     </button>
                   </td>
                 </tr>
