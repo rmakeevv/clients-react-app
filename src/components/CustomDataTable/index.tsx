@@ -1,4 +1,4 @@
-import { TextInput, Dropdown } from 'components/Common';
+import { TextInput, Dropdown, CustomButton } from 'components/Common';
 import { DropdownItem } from 'components/Common/Dropdown/types';
 import CreateForm from 'components/CreateForm';
 import { ContentWrapper } from 'components/index';
@@ -100,12 +100,12 @@ const CustomDataTable = () => {
                   <td>{item.region}</td>
                   <td>{item.status}</td>
                   <td>
-                    <button
-                      className={styles.delete__button}
+                    <CustomButton
                       onClick={() => dispatch(deleteOne(item.id))}
+                      style={{ width: '32px', padding: '6px' }}
                     >
                       <TrashIcon />
-                    </button>
+                    </CustomButton>
                   </td>
                 </tr>
               ))}

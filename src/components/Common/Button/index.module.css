@@ -5,6 +5,9 @@
   border-radius: 6px;
   font-weight: 500;
   transition: 0.3s ease-in-out;
+  display: flex;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .custom__button:hover {
