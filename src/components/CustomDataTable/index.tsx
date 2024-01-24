@@ -1,5 +1,4 @@
-import { TextInput } from 'components/Common';
-import Dropdown from 'components/Common/Dropdown';
+import { TextInput, Dropdown } from 'components/Common';
 import { DropdownItem } from 'components/Common/Dropdown/types';
 import CreateForm from 'components/CreateForm';
 import { ContentWrapper } from 'components/index';
